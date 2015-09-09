@@ -4,7 +4,7 @@ function json_load_str {
 	python -c "import json, sys; sys.stdout.write(unicode(json.loads(sys.argv[1])))" "$1"
 }
 
-UNAME="btasdoven@gmail.com"
+read -p "Facebook username: " UNAME
 read -s -p "${UNAME}'s password: " PASS
 GROUP_NAME="Deneme"
 MESSAGE=$(date -dmonday +"%U. hafta için katılım durumunuzu belirtiniz.  —pollbot")
@@ -30,5 +30,5 @@ JSON_POLL_ID=$(phantomjs --ssl-protocol=any create_poll.js "$UNAME" "$PASS" "$GR
 
 POLL_ID=$(json_load_str $JSON_POLL_ID)
 
-echo $POLL_ID >> polls.list
+echo $POLL_ID
 
