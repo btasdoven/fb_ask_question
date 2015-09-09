@@ -1,6 +1,8 @@
 # fb_ask_question
 Facebook Ask Question Bot
 
+Generates a question poll in a Facebook group. Poll options and poll message are configurable.
+
 # How to use?
 
 To create a question poll, run the following command:
@@ -22,7 +24,7 @@ In order to modify poll message, poll options and the group on which the poll is
 # Dependencies
 
 - [phantomjs](http://phantomjs.org/)
-- [python](https://www.python.org/)
+- [python 2.x](https://www.python.org/)
 
 
 
