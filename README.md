@@ -48,7 +48,7 @@ Option5 2
 - [phantomjs](http://phantomjs.org/)
 - [python 2.x](https://www.python.org/)
 
-$ TODOs
+# TODOs
 
 - Retrieve list of voter names for each option instead of just a number.
 - Create a post message on a facebook group (and add tagging people feature).
