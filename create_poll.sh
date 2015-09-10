@@ -4,8 +4,8 @@ function json_load_str {
 	python -c "import json, sys; sys.stdout.write(unicode(json.loads(sys.argv[1])))" "$1"
 }
 
-read -p "Facebook username: " UNAME
-read -s -p "${UNAME}'s password: " PASS
+UNAME="$1" #read -p "Facebook username: " UNAME
+PASS="$2" #read -s -p "${UNAME}'s password: " PASS
 GROUP_NAME="Deneme"
 MESSAGE=$(date -dmonday +"%U. hafta için katılım durumunuzu belirtiniz.  —pollbot")
 
