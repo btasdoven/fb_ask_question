@@ -26,7 +26,8 @@ OPT7=$(date -d "$TODAY + $((14 - DoW)) days" +"%d %B %Y, %A 10:00")
 
 # NOTE: Cannot add more than 10 options in FB
 
-JSON_POLL_ID=$(phantomjs --ssl-protocol=any create_poll.js "$UNAME" "$PASS" "$GROUP_NAME" "$MESSAGE" "$OPT1" "$OPT2" "$OPT3" "$OPT4" "$OPT5" "$OPT6" "$OPT7")
+# More options can be added as new arguments
+JSON_POLL_ID=$(phantomjs --ssl-protocol=any js/create_poll.js "$UNAME" "$PASS" "$GROUP_NAME" "$MESSAGE" "$OPT1" "$OPT2" "$OPT3" "$OPT4" "$OPT5" "$OPT6" "$OPT7")
 
 POLL_ID=$(json_load_str $JSON_POLL_ID)
 

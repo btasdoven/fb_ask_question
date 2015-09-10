@@ -41,6 +41,7 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
-chat.js
-check_votes.py
-polls.list
+
+#Repo specific files
+poll.list
+*~
