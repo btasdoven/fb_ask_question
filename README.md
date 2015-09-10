@@ -2,7 +2,7 @@
 Facebook Asking Question and Vote Retrival Bot
 
 - Generates a question poll in a Facebook group. Poll options and poll message are configurable.
-- Reads a question poll in a Facebook group and retrieve vote counts.
+- Reads a question poll in a Facebook group and retrieves vote counts.
 
 # How to use?
 
