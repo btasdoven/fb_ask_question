@@ -17,7 +17,7 @@ To retrieve the votes of the previously created poll, run the following command:
 ```
 $ ./read_poll.sh <Poll ID>
 ```
-This script reads the poll whose id is given as argument and prints a (Poll Option Name, Vote Count) dictionary.
+This script reads the poll whose id is given as argument and prints a `<Poll Option Name, Vote Count>` dictionary.
 
 # Configurations
 
@@ -31,11 +31,11 @@ are configurable. These configurations can be modified by changing the first few
 # Example Usage
 
 ```
-$ touch poll.id
-$ ./create_poll.sh $FB_USERNAME $FB_PASSWORD >> poll.id
-$ cat poll.id
+$ touch poll.ids
+$ ./create_poll.sh $FB_USERNAME $FB_PASSWORD >> poll.ids
+$ cat poll.ids
 666322010171478
-$ ./read_poll.sh 666322010171478
+$ ./read_poll.sh $(cat poll.ids | tail -1)
 Option1 0
 Option2 4
 Option3 1
