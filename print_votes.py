@@ -12,18 +12,23 @@ weekday = datetime.datetime.today().weekday()
 tomorrow_name, tomorrow_vote_count = it[weekday+1]
 
 if tomorrow_vote_count >= 6:
-	message = "Yarin(%s) %d kisi oynayalim demis. Oynayalim diyen herkes gelecek degil mi?" % (tomorrow_name, tomorrow_vote_count)
+	message = u"Yarin(%s) %d kisi oynayalim demis. Oynayalim diyen herkes gelecek degil mi?" % (tomorrow_name, tomorrow_vote_count)
 else:
-	message = "Yarin(%s) %d kisi oynayalim dedigi icin yeterli sayiya ulasamadik." % (tomorrow_name, tomorrow_vote_count)
+	message = u"Yarin(%s) %d kisi oynayalim dedigi icin yeterli sayiya ulasamadik." % (tomorrow_name, tomorrow_vote_count)
 
-message += "\n\n Su anlik bu haftanin oylama sonuclari soyle:\n\n"	
+message += u"\n\n Su anlik bu haftanin oylama sonuclari soyle:\n\n"	
 
 for date, vote in it:
-	message += "%s, %s\n" % (date.encode('utf-8'), vote)
+	message += u"%s, %s\n" % (date, vote)
 	
+message += u"\n\n-pollbot"
+print message
+
+"""
 cmd = ["./send_post.sh", uname, passwd, message]
 process = Popen(cmd, stdout=PIPE)
 output, err = process.communicate()
+"""
 		
 
 
