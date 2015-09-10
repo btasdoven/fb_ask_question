@@ -22,13 +22,9 @@ for date, vote in it:
 	message += u"%s, %s\n" % (date, vote)
 	
 message += u"\n\n-pollbot"
-print message
 
-"""
 cmd = ["./send_post.sh", uname, passwd, message]
 process = Popen(cmd, stdout=PIPE)
 output, err = process.communicate()
-"""
-		
 
 
