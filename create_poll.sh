@@ -11,18 +11,13 @@ MESSAGE=$(date -dmonday +"%U. hafta için katılım durumunuzu belirtiniz.  —p
 
 DoW=$(date +%u)
 TODAY=$(date +%Y%m%d)
-OPT1=$(date -d "$TODAY + $((8 - DoW)) days" +"%d %B %Y, %A 12:00")
-#OPT11=$(date -d "$TODAY + $((8 - DoW)) days" +"%d %B %Y, %A 19:00")
-OPT2=$(date -d "$TODAY + $((9 - DoW)) days" +"%d %B %Y, %A 12:00")
-#OPT21=$(date -d "$TODAY + $((9 - DoW)) days" +"%d %B %Y, %A 19:00")
-OPT3=$(date -d "$TODAY + $((10 - DoW)) days" +"%d %B %Y, %A 12:00")
-#OPT31=$(date -d "$TODAY + $((10 - DoW)) days" +"%d %B %Y, %A 19:00")
-OPT4=$(date -d "$TODAY + $((11 - DoW)) days" +"%d %B %Y, %A 12:00")
-#OPT41=$(date -d "$TODAY + $((11 - DoW)) days" +"%d %B %Y, %A 19:00")
-OPT5=$(date -d "$TODAY + $((12 - DoW)) days" +"%d %B %Y, %A 12:00")
-#OPT51=$(date -d "$TODAY + $((12 - DoW)) days" +"%d %B %Y, %A 19:00")
-OPT6=$(date -d "$TODAY + $((13 - DoW)) days" +"%d %B %Y, %A 10:00")
-OPT7=$(date -d "$TODAY + $((14 - DoW)) days" +"%d %B %Y, %A 10:00")
+OPT1=$(LC_ALL=en_US.utf8 date -d "$TODAY + $(( 8 - DoW)) days + 12 hours" +"%d %B %Y %A %H:%M")
+OPT2=$(LC_ALL=en_US.utf8 date -d "$TODAY + $(( 9 - DoW)) days + 12 hours" +"%d %B %Y %A %H:%M")
+OPT3=$(LC_ALL=en_US.utf8 date -d "$TODAY + $((10 - DoW)) days + 12 hours" +"%d %B %Y %A %H:%M")
+OPT4=$(LC_ALL=en_US.utf8 date -d "$TODAY + $((11 - DoW)) days + 12 hours" +"%d %B %Y %A %H:%M")
+OPT5=$(LC_ALL=en_US.utf8 date -d "$TODAY + $((12 - DoW)) days + 12 hours" +"%d %B %Y %A %H:%M")
+OPT6=$(LC_ALL=en_US.utf8 date -d "$TODAY + $((13 - DoW)) days + 10 hours" +"%d %B %Y %A %H:%M")
+OPT7=$(LC_ALL=en_US.utf8 date -d "$TODAY + $((14 - DoW)) days + 10 hours" +"%d %B %Y %A %H:%M")
 
 # NOTE: Cannot add more than 10 options in FB
 
