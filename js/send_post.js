@@ -33,24 +33,19 @@ function clickSendPost() {
 	page.evaluate(function() {
 		var ev = document.createEvent("MouseEvent");
 		ev.initMouseEvent("click", true, true, window, null, 0, 0, 0, 0, false, false, false, false, 0 , null);		  	
-		document.getElementsByClassName("_9lb")[2].dispatchEvent(ev);								
+		document.getElementsByClassName("_9lb")[0].dispatchEvent(ev);								
 	});
 }
 
 function writeMessage(message) {
 	page.evaluate( function(message) {
-		document.getElementsByClassName("_55d0")[0].children[1].children[1].children[7].children[1].children[0].value=message;
-		
+		document.getElementsByClassName("_55d0")[0].children[1].children[1].children[7].children[0].children[2].value=message;
+
 		var ev = document.createEvent("MouseEvent");
 		ev.initMouseEvent("click", true, true, window, null, 0, 0, 0, 0, false, false, false, false, 0 , null);
-		document.getElementsByClassName("_55d0")[0].children[1].children[1].children[8].children[0].children[1].children[1].children[0].dispatchEvent(ev);
+		document.getElementsByClassName("_55d0")[0].children[1].children[1].children[15].children[0].children[1].children[1].children[0].dispatchEvent(ev);
 	}, message);
-}
-function afterPost() {
-	var pollid = page.evaluate(function() {
-		return document.querySelectorAll("div.fbEigenpollRow input[name='qid']")[0].value;
-	});		
-  	return pollid;
+	page.render("writeMessage.png");
 }
 
 function done() {	
@@ -69,12 +64,11 @@ var jobs = [[login, [username, password]],
 			[navigateToGroupsListPage, []],
 			[navigateToGroupPage, [groupName]],
 			[clickSendPost, []],
-			[writeMessage, [message]],,
-			[afterPost, []],
+			[writeMessage, [message]],
 			[done, []]
 		   ];
 		  
-var timeouts = [5000, 5000, 5000, 1000, 1000, 1000, 1000]; 
+var timeouts = [5000, 5000, 5000, 1000, 1000, 1000]; 
 
 function doJob() {
 	if (jobs.length > 0) {
