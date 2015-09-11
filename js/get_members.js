@@ -29,22 +29,32 @@ function navigateToGroupPage(groupName) {
   	}, groupName);
 }
 
-function clickSendPost() {
+function clickToMembers() {
 	page.evaluate(function() {
 		var ev = document.createEvent("MouseEvent");
 		ev.initMouseEvent("click", true, true, window, null, 0, 0, 0, 0, false, false, false, false, 0 , null);		  	
-		document.getElementsByClassName("_9lb")[0].dispatchEvent(ev);								
+		document.getElementsByClassName("_2l5d")[1].dispatchEvent(ev);								
 	});
 }
 
-function writeMessage(message) {
-	page.evaluate( function(message) {
-		document.getElementsByClassName("_55d0")[0].children[1].children[1].children[7].children[0].children[2].value=message;
-
-		var ev = document.createEvent("MouseEvent");
-		ev.initMouseEvent("click", true, true, window, null, 0, 0, 0, 0, false, false, false, false, 0 , null);
-		document.getElementsByClassName("_55d0")[0].children[1].children[1].children[15].children[0].children[1].children[1].children[0].dispatchEvent(ev);
-	}, message);
+function getMembers() {
+	var members = page.evaluate(function() {
+		var members = {};
+		var rows = document.querySelectorAll("table")[0].querySelectorAll("._51mx");
+		
+		for (i = 0; i < rows.length; i++) {
+			var columns = rows[i].querySelectorAll("td");
+			for(j = 0; j < columns.length; j++) {
+				if ( columns[j].querySelectorAll("a").length > 0 ) {
+					name = columns[j].querySelectorAll("a")[1].innerHTML;
+					link = columns[j].querySelectorAll("a")[1].href;
+					members[name] = link;
+				}
+			}
+		}
+		return members;					
+	});
+	return members;
 }
 
 function done() {	
@@ -62,8 +72,8 @@ var message = system.args[4];
 var jobs = [[login, [username, password]],
 			[navigateToGroupsListPage, []],
 			[navigateToGroupPage, [groupName]],
-			[clickSendPost, []],
-			[writeMessage, [message]],
+			[clickToMembers, []],
+			[getMembers, []],
 			[done, []]
 		   ];
 		  
