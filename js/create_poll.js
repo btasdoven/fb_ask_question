@@ -2,7 +2,7 @@ function login(username, password) {
 	page.evaluate(function(args) {
 	  	document.getElementById("email").value = args[0];
 	 	document.getElementById("pass").value = args[1];
-	  	document.getElementById("login_button_inline").children[0].children[0].click();
+	  	document.querySelectorAll("input[type='submit']")[0].click();
     }, [username, password]);
 }
 
@@ -10,7 +10,7 @@ function navigateToGroupsListPage() {
 	page.evaluate(function() {    
 		var ev = document.createEvent("MouseEvent");
 		ev.initMouseEvent("click", true, true, window, null, 0, 0, 0, 0, false, false, false, false, 0 , null);
-		document.querySelector("a[href='/groups/?category=membership&ref=bookmark_header']").dispatchEvent(ev);
+		document.getElementById("groupsNav").querySelectorAll(".navHeader")[0].children[0].dispatchEvent(ev);
   	});
 }
 
@@ -111,7 +111,7 @@ var page = require('webpage').create();
 
 page.open("http://www.facebook.com/login.php", function(status) {
 	page.onConsoleMessage = function(msg, lineNum, sourceId) {
-		console.log('CONSOLE: ' + msg);
+		//console.log('CONSOLE: ' + msg);
 	};
 	
   	if (status === "success") {  	

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import sys, json
 import datetime
 import subprocess
@@ -44,7 +45,7 @@ for date, vote in tom_games:
 		else:
 			message += u"Yarın(%s) %d kişi oynayalım demiş. 1 kişiye daha ihtiyacımız var. Gelebilecek olan var mı?\n\n" % (date, vote)
 
-if ( message != "" )
+if ( len(message) > 0 ):
 	message += u"Şu anlık bu haftanın oylama sonuçlari şöyle:\n\n"	
 	for date, vote in it:
 		message += u"%s, %s\n" % (date, vote)

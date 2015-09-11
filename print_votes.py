@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import sys, json
 import datetime
 import os

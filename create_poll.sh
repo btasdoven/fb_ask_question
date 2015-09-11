@@ -6,7 +6,7 @@ function json_load_str {
 
 UNAME="$1" #read -p "Facebook username: " UNAME
 PASS="$2" #read -s -p "${UNAME}'s password: " PASS
-GROUP_NAME="Deneme"
+GROUP_NAME="$3"
 MESSAGE=$(date -dmonday +"%U. hafta için katılım durumunuzu belirtiniz.  —pollbot")
 
 DoW=$(date +%u)

@@ -2,14 +2,11 @@
 
 UNAME="$1" 
 PASS="$2" 
-DoW=$(date +%u)
-HoD=$(date +%k%M)
-if [ "$DoW" -eq 7 -a "$HoD" -st 1200 ]; then
-	./create_poll.sh $UNAME $PASS >> poll.ids
+GROUP_NAME="$3"
+VOTES=$(./read_poll.sh $UNAME $PASS $GROUP_NAME $(cat poll.ids | tail -1))
+MESSAGE=$(python generate_message.py $VOTES)
+if [[ ! -z $MESSAGE ]]; then
+	./send_post.sh $UNAME $PASS $GROUP_NAME $MESSAGE
 else
-	VOTES=$(./read_poll.sh $UNAME $PASS $(cat poll.ids | tail -1))
-	MESSAGE=$(python generate_message.py $VOTES)
-	if [[ ! -z $MESSAGE ]]; then
-		./send_post.sh $UNAME $PASS $MESSAGE
-	fi
+	echo "No need to send a post. Aborting"
 fi
