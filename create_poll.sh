@@ -24,6 +24,8 @@ OPT7=$(LC_ALL=en_US.utf8 date -d "$TODAY + $((14 - DoW)) days + 10 hours" +"%d %
 # More options can be added as new arguments
 JSON_POLL_ID=$(phantomjs --ssl-protocol=any js/create_poll.js "$UNAME" "$PASS" "$GROUP_NAME" "$MESSAGE" "$OPT1" "$OPT2" "$OPT3" "$OPT4" "$OPT5" "$OPT6" "$OPT7")
 
+echo $JSON_POLL_ID
+
 POLL_ID=$(json_load_str $JSON_POLL_ID)
 
 echo $POLL_ID

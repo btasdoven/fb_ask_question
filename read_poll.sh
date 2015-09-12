@@ -10,10 +10,12 @@ MEMBERS=$(phantomjs --ssl-protocol=any js/get_members.js  "$UNAME" "$PASS" "$GRO
 
 MESSAGE=$(python generate_message.py "$VOTES" "$MEMBERS")
 if [[ ! -z $MESSAGE ]]; then
-	./send_post.sh $UNAME $PASS $GROUP_NAME $MESSAGE
+	./send_post.sh "$UNAME" "$PASS" "$GROUP_NAME" "$MESSAGE"
 else
 	echo "No need to send a post. Aborting"
 fi
 #python print_votes.py "$JSON_VOTES" "$1" "$2"
 
 echo $VOTES
+echo $MEMBERS
+echo $MESSAGE
