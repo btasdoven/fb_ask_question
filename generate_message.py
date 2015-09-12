@@ -21,6 +21,7 @@ def getTomorrowEnd():
 	
 
 votes = json.loads(sys.argv[1])
+group_members = json.loads(sys.argv[2])
 
 it = votes.iteritems()
 it = sorted(it, key=lambda x: (x[0], x[1]))
@@ -45,7 +46,7 @@ for date, vote in tom_games:
 		else:
 			message += u"Yarın(%s) %d kişi oynayalım demiş. 1 kişiye daha ihtiyacımız var. Gelebilecek olan var mı?\n\n" % (date, vote)
 
-if ( len(message) > 0 ):
+if len(message) == 0:
 	message += u"Şu anlık bu haftanın oylama sonuçlari şöyle:\n\n"	
 	for date, vote in it:
 		message += u"%s, %s\n" % (date, vote)
