@@ -97,7 +97,7 @@ var page = require('webpage').create();
 
 page.open("http://www.facebook.com/login.php", function(status) {
 	page.onConsoleMessage = function(msg, lineNum, sourceId) {
-		console.log('CONSOLE: ' + msg);
+//		console.log('CONSOLE: ' + msg);
 	};
 	
   	if (status === "success") {  	
