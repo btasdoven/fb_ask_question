@@ -45,16 +45,14 @@ function getMembers() {
 		for (i = 0; i < rows.length; i++) {
 			var columns = rows[i].querySelectorAll("td");
 			for(j = 0; j < columns.length; j++) {
-				/*
-				if ( columns[j].querySelectorAll("a").length > 0 ) {
+				if ( columns[j].querySelectorAll("a").length > 1 ) {
 					name = columns[j].querySelectorAll("a")[1].innerHTML;
-					link = columns[j].querySelectorAll("a")[1].	href;
-					members[name] = link;
+					id = columns[j].querySelectorAll("a")[1].getAttribute("data-hovercard");
+					s = id.indexOf("?id=") + 4
+					e = id.slice(s, id.length).indexOf("&")
+					id = id.slice(s, s + e);
+					members[name]=id;
 				}
-				*/
-				id = columns[j].querySelector("div[id^='member_']").id;
-				id = id.slice(7, id.length);
-				members[name]=id;
 			}
 		}
 		return members;					
@@ -99,7 +97,7 @@ var page = require('webpage').create();
 
 page.open("http://www.facebook.com/login.php", function(status) {
 	page.onConsoleMessage = function(msg, lineNum, sourceId) {
-		//console.log('CONSOLE: ' + msg);
+		console.log('CONSOLE: ' + msg);
 	};
 	
   	if (status === "success") {  	
