@@ -45,11 +45,16 @@ function getMembers() {
 		for (i = 0; i < rows.length; i++) {
 			var columns = rows[i].querySelectorAll("td");
 			for(j = 0; j < columns.length; j++) {
+				/*
 				if ( columns[j].querySelectorAll("a").length > 0 ) {
 					name = columns[j].querySelectorAll("a")[1].innerHTML;
-					link = columns[j].querySelectorAll("a")[1].href;
+					link = columns[j].querySelectorAll("a")[1].	href;
 					members[name] = link;
 				}
+				*/
+				id = columns[j].querySelector("div[id^='member_']").id;
+				id = id.slice(7, id.length);
+				members[name]=id;
 			}
 		}
 		return members;					
