@@ -10,12 +10,12 @@ def date2timestamp(date):
 	
 
 def getTomorrowStart():
-	cmd = ["LC_ALL=en_US.utf8", "date", "-d", '"+8 days 00:00"', "+%s"]
+	cmd = ["LC_ALL=en_US.utf8", "date", "-d", '"+1 days 00:00"', "+%s"]
 	output = subprocess.check_output(' '.join(cmd), shell=True)
 	return int(output)	
 	
 def getTomorrowEnd():
-	cmd = ["LC_ALL=en_US.utf8", "date", "-d", '"+9 days 00:00"', "+%s"]
+	cmd = ["LC_ALL=en_US.utf8", "date", "-d", '"+2 days 00:00"', "+%s"]
 	output = subprocess.check_output(' '.join(cmd), shell=True)
 	return int(output)	
 	
@@ -46,13 +46,10 @@ for date, vote in tom_games:
 		else:
 			message += u"Yarın(%s) %d kişi oynayalım demiş. 1 kişiye daha ihtiyacımız var. Gelebilecek olan var mı?\n\n" % (date, vote)
 
-"""
-if len(message) == 0:
-	message += u"Şu anlık bu haftanın oylama sonuçlari şöyle:\n\n"	
-	for date, vote in it:
-		message += u"%s, %s\n" % (date, vote)
-"""
-
-message += u"\n\n-pollbot"
+if len(message) > 0:
+#	message += u"Şu anlık bu haftanın oylama sonuçlari şöyle:\n\n"	
+#	for date, vote in it:
+#		message += u"%s, %s\n" % (date, vote)
+	message += u"\n\n-pollbot"
 
 print message.encode('utf-8')

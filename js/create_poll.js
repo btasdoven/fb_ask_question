@@ -4,17 +4,19 @@ function login(username, password) {
 	 	document.getElementById("pass").value = args[1];
 	  	document.querySelectorAll("input[type='submit']")[0].click();
     }, [username, password]);
+	page.render('status/1.login.png');
 }
 
-function navigateToGroupsListPage() {
+function navigateToGroupsListPage() { 
 	page.evaluate(function() {    
 		var ev = document.createEvent("MouseEvent");
 		ev.initMouseEvent("click", true, true, window, null, 0, 0, 0, 0, false, false, false, false, 0 , null);
 		document.getElementById("groupsNav").querySelectorAll(".navHeader")[0].children[0].dispatchEvent(ev);
   	});
+	page.render('status/2.navigateToGroupsListPage.png');
 }
 
-function navigateToGroupPage(groupName) {
+function navigateToGroupPage(groupName) { 
 	page.evaluate(function(groupName) {    
 		var ev = document.createEvent("MouseEvent");
 		ev.initMouseEvent("click", true, true, window, null, 0, 0, 0, 0, false, false, false, false, 0 , null);
@@ -27,17 +29,19 @@ function navigateToGroupPage(groupName) {
 			}
 		}
   	}, groupName);
+	page.render('status/3.navigateToGroupPage.png');
 }
 
-function clickAskQuestion() {
+function clickAskQuestion() { 
 	page.evaluate(function() {
 		var ev = document.createEvent("MouseEvent");
 		ev.initMouseEvent("click", true, true, window, null, 0, 0, 0, 0, false, false, false, false, 0 , null);		  	
 		document.getElementsByClassName("_9lb")[2].dispatchEvent(ev);								
 	});
+	page.render('status/4.clickAskQuestion.png');
 }
 
-function writeMessageAndClickPollOptions(message) {
+function writeMessageAndClickPollOptions(message) { 
 	page.evaluate( function(message) {
 		document.getElementsByClassName("_55d0")[0].children[1].children[1].children[7].children[1].children[0].value=message;
 		
@@ -45,6 +49,7 @@ function writeMessageAndClickPollOptions(message) {
 		ev.initMouseEvent("click", true, true, window, null, 0, 0, 0, 0, false, false, false, false, 0 , null);  
 		document.getElementsByClassName("_55d0")[0].children[1].children[1].children[8].children[0].children[0].children[0].dispatchEvent(ev);
 	}, message);
+	page.render('status/5.writeMessageAndClickPollOptions.png');
 }
 
 function fillTheOptionsAndPost(options) {
@@ -60,18 +65,22 @@ function fillTheOptionsAndPost(options) {
 		ev.initMouseEvent("click", true, true, window, null, 0, 0, 0, 0, false, false, false, false, 0 , null);
 		document.getElementsByClassName("_55d0")[0].children[1].children[1].children[8].children[0].children[1].children[1].children[0].dispatchEvent(ev);
 	},options);
+	page.render('status/6.fillTheOptionsAndPost.png');
 	
 	return ret;
 }
 
 function afterPost() {
 	var pollid = page.evaluate(function() {
+//		console.log("afterPost");
 		return document.querySelectorAll("div.fbEigenpollRow input[name='qid']")[0].value;
 	});		
+	page.render('status/7.afterPost.png');
   	return pollid;
 }
 
 function done() {	
+	page.render('status/8.done.png');
   	phantom.exit();
 }
 
